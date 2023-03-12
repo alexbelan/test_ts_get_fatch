@@ -1,4 +1,3 @@
-import fetch, { Response } from "node-fetch";
 const COMMENTS_URL = 'https://jsonplaceholder.typicode.com/comments';
 interface Post {
   postId: number,
@@ -8,14 +7,14 @@ interface Post {
   body: string,
 }
 
-const getData = (url: string): Promise<unknown> => {
-  return fetch(url).then((res: Response) => {
+const getData = <T>(url: string): Promise<T> => {
+  return fetch(url).then((res) => { 
     return res.json()
   })
 }
 
-getData(COMMENTS_URL)
-  .then((data: unknown) => {
+getData<Post[]>(COMMENTS_URL)
+  .then((data) => {
     if(Array.isArray(data)) {
       data.forEach((element: Post) => {
         console.log(`ID: ${element.id}, Email: ${element.email}`)

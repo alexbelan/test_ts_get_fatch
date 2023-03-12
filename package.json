@@ -1,9 +1,6 @@
 {
   "name": "get_data_url",
   "type": "module",
-  "dependencies": {
-    "node-fetch": "^3.3.0"
-  },
   "devDependencies": {
     "@types/node": "^18.14.6"
   }
